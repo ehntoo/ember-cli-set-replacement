@@ -99,7 +99,6 @@ var set = Ember.set;
   @uses Ember.Copyable
   @uses Ember.Freezable
   @since Ember 0.9
-  @deprecated
 */
 export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, Ember.Freezable, {
 
