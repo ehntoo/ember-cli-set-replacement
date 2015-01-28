@@ -1,8 +1,12 @@
-# Ember-set-polyfill
+# Ember-cli-set-replacement
 
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
+
+* `npm install --save-dev ember-cli-set-replacement`
+
+## Development
 
 * `git clone` this repository
 * `npm install`

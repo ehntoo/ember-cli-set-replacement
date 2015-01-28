@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-set-polyfill'
+  name: 'ember-cli-set-replacement'
 };

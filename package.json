@@ -1,7 +1,7 @@
 {
-  "name": "ember-set-polyfill",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "ember-cli-set-replacement",
+  "version": "0.0.1",
+  "description": "An ember-cli addon to replace the deprecated ember set support.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/ehntoo/ember-cli-set-replacement",
   "engines": {
     "node": ">= 0.10.0"
   },
