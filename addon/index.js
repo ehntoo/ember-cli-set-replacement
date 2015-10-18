@@ -97,10 +97,9 @@ var set = Ember.set;
   @extends Ember.CoreObject
   @uses Ember.MutableEnumerable
   @uses Ember.Copyable
-  @uses Ember.Freezable
   @since Ember 0.9
 */
-export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, Ember.Freezable, {
+export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, {
 
   _content: new Set(),
 
@@ -132,7 +131,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     @return {Ember.Set} An empty Set
   */
   clear: function() {
-    if (this.isFrozen) { throw new Ember.EmberError(Ember.FROZEN_ERROR); }
+    //if (this.isFrozen) { throw new Ember.EmberError(Ember.FROZEN_ERROR); }
 
     var len = get(this, 'length');
     if (len === 0) { return this; }
