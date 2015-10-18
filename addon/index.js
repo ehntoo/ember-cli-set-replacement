@@ -240,7 +240,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     @return {Object} The removed object from the set or null.
   */
   pop: function() {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    //if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
     var obj = this._content.values().next();
     if (obj.done) {
       return null;
@@ -354,7 +354,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
 
   // implements Ember.MutableEnumerable
   addObject: function(obj) {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    //if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
     if (Ember.isNone(obj)) return this; // nothing to do
 
     if (this._content.has(obj)) return this;
@@ -374,7 +374,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
 
   // implements Ember.MutableEnumerable
   removeObject: function(obj) {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    //if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
     if (Ember.isNone(obj)) return this; // nothing to do
 
     if (!this._content.has(obj)) return this;
