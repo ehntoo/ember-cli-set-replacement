@@ -409,6 +409,6 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     this._content.forEach(function(val) {
       array.push(val);
     });
-    return Ember.String.fmt("Ember.SetPolyfill<%@>", [array.join(',')]);
+    return `Ember.SetPolyfill ${[array.join(',')]}`;
   }
 });
