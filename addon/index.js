@@ -97,10 +97,9 @@ var set = Ember.set;
   @extends Ember.CoreObject
   @uses Ember.MutableEnumerable
   @uses Ember.Copyable
-  @uses Ember.Freezable
   @since Ember 0.9
 */
-export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, Ember.Freezable, {
+export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, {
 
   _content: new Set(),
 
@@ -132,7 +131,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     @return {Ember.Set} An empty Set
   */
   clear: function() {
-    if (this.isFrozen) { throw new Ember.EmberError(Ember.FROZEN_ERROR); }
+    if (Object.isFrozen(this)) throw Ember.FROZEN_ERROR;
 
     var len = get(this, 'length');
     if (len === 0) { return this; }
@@ -241,7 +240,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     @return {Object} The removed object from the set or null.
   */
   pop: function() {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    if (Object.isFrozen(this)) throw Ember.FROZEN_ERROR;
     var obj = this._content.values().next();
     if (obj.done) {
       return null;
@@ -355,7 +354,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
 
   // implements Ember.MutableEnumerable
   addObject: function(obj) {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    if (Object.isFrozen(this)) throw Ember.FROZEN_ERROR;
     if (Ember.isNone(obj)) return this; // nothing to do
 
     if (this._content.has(obj)) return this;
@@ -375,7 +374,7 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
 
   // implements Ember.MutableEnumerable
   removeObject: function(obj) {
-    if (get(this, 'isFrozen')) throw new Ember.EmberError(Ember.FROZEN_ERROR);
+    if (Object.isFrozen(this)) throw Ember.FROZEN_ERROR;
     if (Ember.isNone(obj)) return this; // nothing to do
 
     if (!this._content.has(obj)) return this;
@@ -410,6 +409,6 @@ export default Ember.CoreObject.extend(Ember.MutableEnumerable, Ember.Copyable, 
     this._content.forEach(function(val) {
       array.push(val);
     });
-    return Ember.String.fmt("Ember.SetPolyfill<%@>", [array.join(',')]);
+    return `Ember.SetPolyfill ${[array.join(',')]}`;
   }
 });
